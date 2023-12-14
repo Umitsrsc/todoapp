@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class ToDoController extends Controller
 {
@@ -10,7 +11,12 @@ class ToDoController extends Controller
         return view('create');
     }
     public function list(Request $request){
-        dd($request->all());
+        $todo=new Todo();
+        $todo->gorev=$request->gorev;
+        $todo->aciklama=$request->aciklama;
+        $todo->durum=false;
+
+        $todo->save();
 
     }
 }
