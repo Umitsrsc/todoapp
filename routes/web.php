@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get("/todos/create",[ToDoController::class,'create']);
-Route::post("/todos/list",[ToDoController::class,'list']);
+Route::get("/create",[ToDoController::class,'create']);
+Route::post("/todolist",[ToDoController::class,'store']);
+Route::get("/todolist",[ToDoController::class,'list']);
+

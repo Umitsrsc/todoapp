@@ -10,7 +10,7 @@ class ToDoController extends Controller
     public function create(){
         return view('create');
     }
-    public function list(Request $request){
+    public function store(Request $request){
         $todo=new Todo();
         $todo->gorev=$request->gorev;
         $todo->aciklama=$request->aciklama;
@@ -18,5 +18,13 @@ class ToDoController extends Controller
 
         $todo->save();
 
+        return redirect('/todolist');
+        
+
+    }
+    public function list(Request $request){
+        $todos = Todo::all();
+
+        return view('todolist', compact('todos'));
     }
 }
